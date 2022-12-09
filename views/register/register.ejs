@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<%- include('../partials/head') %>
+</head>
+	<%- include('../partials/header') %>
+
+<body>
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col">
+				<form action="/register" method="POST">
+					<div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" name="firstName" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="firstName">Last Name</label>
+						<input type="text" name="lastName" class="form-control">
+					</div>
+	
+					<div class="form-group">
+						<label for="firstName">Email</label>
+						<input type="text" name="email" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="firstName">Password</label>
+						<input type="text" name="password" class="form-control">
+					</div>
+					<button class="btn btn-success">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<%- include('../partials/jsPath') %>
+</body>
+
+</html>
+
+
+
+
+
+
+
