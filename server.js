@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
-app.use('/input-expense', require('./routes/handleExpense'));
+app.use('/input-expense', require('./routes/inputExpense'));
 app.use('/user', require('./routes/user'));
 
 const port = 3000;

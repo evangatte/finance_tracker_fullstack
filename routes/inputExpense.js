@@ -1,24 +1,23 @@
 const express = require('express');
-const router = express();
+const router = express.Router();
 const User = require('../models/User');
 
 
-router.post('/input-expense', async (req, res) => {
+router.post('/', async (req, res) => {
 	const user = await User.findById(req.user.id);
 
 	const newBill = {
-		expenseName: req.body.name,
-		expenseAmount: req.body.amount
+		expenseName: req.body.expenseName,
+		expenseAmount: req.body.expenseAmount,
+		dueDate: req.body.dueDate
 	}
 
 	user.expenses.push(newBill);
-
-	//console.log(req.body.name)
 	await user.save();
 
 	
 	if (req.user) {
-		res.json({"Input": "Successful"});
+		res.redirect('/user/finance');
 	} else {
 		res.json({"Input": "Failed"});
 	}

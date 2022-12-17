@@ -8,11 +8,41 @@
 
 <body>
 	<div class="container">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col">
 				<h1>Hello, <%= currentUser.firstName %> </h1>
 			</div>
+		</div> -->
+		<div class="row text-center my-4">
+			<div class="col">
+				<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#newBillModal"> Add new Bill</button>
+				<button type="button" class="btn btn-secondary disabled" id="editBtn">Edit</button>
+			</div>
 		</div>
+
+		<%- include('../partials/newBillModal.ejs') %> 
+
+		<table class="table">
+			<thead>
+			  <tr>
+				<th><input type="checkbox" id="allBillsCheckbox"></th>
+				<th scope="col">Name</th>
+				<th scope="col">Amount</th>
+				<th scope="col">Due Date</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<% currentUser.expenses.forEach((item, index) => { %>
+					<tr>
+						<td><input type="checkbox" class="individualCheckboxes" value="<%= item._id %> "></td>
+						<td><%= item.expenseName %> </td>
+						<td>$<%= item.expenseAmount %> </td>
+						<td><%= item.dueDate %></td>
+					  </tr>	
+				<% }) %> 
+			</tbody>
+		  </table>
+		  <h1>total: <%= currentUser.expenseTotal() %> </h1>
 	</div>
 	<%- include('../partials/jsPath') %>
 </body>

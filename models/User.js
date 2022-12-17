@@ -8,16 +8,18 @@ const UserSchema = new mongoose.Schema({
 	expenses: [{ 
 		expenseName: String, 
 		expenseAmount: Number,
+		dueDate: Number,
+		status: String
 	}]
 });
 
 
 
 
-UserSchema.methods.addExpenses = function() {
+UserSchema.methods.expenseTotal = function() {
 	let totalArray = [];
 	this.expenses.forEach((arr) => {
-		totalArray.push(arr.expenseAmount)
+		totalArray.push(arr.expenseAmount);
 	}) 
 
 	let sum = totalArray.reduce((partialSum, val) => partialSum + val, 0);
@@ -25,21 +27,31 @@ UserSchema.methods.addExpenses = function() {
 }
 
 
-UserSchema.methods.getSpendingMoney = function() {
-	let check = 500;
-	let expenseDayArray = [];
 
-	
-	
-	let expenseTotal = this.addExpenses()
 
-	let spendingMoney = check - expenseTotal;
-	return spendingMoney;
+UserSchema.methods.nextDue = function() {
+	const d = new Date();
+	const currentDay = d.getDate();
+	const newArr = [];
+
+	this.expenses.forEach((obj) => {
+		if (obj.dueDate >= currentDay) {
+			newArr.push(obj)
+		}
+	})
+
+	const returnArr = [];
+
+	newArr.forEach((val) => {
+		if ((val.dueDate - currentDay) <= 5) {
+			returnArr.push(val)
+		}
+	})
+
+	return returnArr;
 }
 
 
-UserSchema.methods.daysUntilCheck = function() {
-	
-}
+
 
 module.exports = mongoose.model('User', UserSchema);
