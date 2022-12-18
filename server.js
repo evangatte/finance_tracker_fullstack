@@ -26,7 +26,11 @@ app.use(function(req, res, next) {
 
 
 app.get('/', (req, res) => {
-	res.render('home/home');
+    if (req.user) {
+        res.redirect('/user/finance');
+    } else {
+        res.render('home/home');
+    }
 });
 
 
@@ -34,6 +38,9 @@ app.get('/', (req, res) => {
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
 app.use('/input-expense', require('./routes/inputExpense'));
+app.use('/fetch-info', require('./routes/fetchInfo'));
+app.use('/edit-expense', require('./routes/editExpense'));
+app.use('/delete-expense', require('./routes/deleteExpense'));
 app.use('/user', require('./routes/user'));
 
 const port = 3000;

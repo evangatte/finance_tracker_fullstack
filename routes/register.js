@@ -18,8 +18,6 @@ router.post('/', async (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         password: hashedPassword,
-        // payPeriod: req.body.payPeriod,
-        // payDay: req.body.payDay
     });
     try {
         await newUser.save();

@@ -8,24 +8,25 @@
 
 <body>
 	<div class="container">
-		<!-- <div class="row">
+		<div class="row text-center">
 			<div class="col">
 				<h1>Hello, <%= currentUser.firstName %> </h1>
 			</div>
-		</div> -->
+		</div>
 		<div class="row text-center my-4">
 			<div class="col">
 				<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#newBillModal"> Add new Bill</button>
-				<button type="button" class="btn btn-secondary disabled" id="editBtn">Edit</button>
 			</div>
 		</div>
 
 		<%- include('../partials/newBillModal.ejs') %> 
+		<%- include('../partials/editBillModal.ejs') %> 
+		<%- include('../partials/approveDeleteModal.ejs') %> 
 
 		<table class="table">
 			<thead>
 			  <tr>
-				<th><input type="checkbox" id="allBillsCheckbox"></th>
+				<th scope="col"></th>
 				<th scope="col">Name</th>
 				<th scope="col">Amount</th>
 				<th scope="col">Due Date</th>
@@ -34,7 +35,17 @@
 			<tbody>
 				<% currentUser.expenses.forEach((item, index) => { %>
 					<tr>
-						<td><input type="checkbox" class="individualCheckboxes" value="<%= item._id %> "></td>
+						<td>
+							<div class="dropdown">
+								<div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  Edit
+								</div>
+								<div class="dropdown-menu px-0 mx-0" aria-labelledby="dropdownMenuButton">
+								  <a class="dropdown-item editBillBtn" data-toggle="modal" data-index=<%= index %> data-target="#editBillModal" href="#">Edit Bill</a>
+								  <a class="dropdown-item deleteBillBtn" data-toggle="modal" href="#" data-index=<%= index %> data-target="#approveDeleteModal" >Delete Bill</a>
+								</div>
+							  </div>
+						</td>
 						<td><%= item.expenseName %> </td>
 						<td>$<%= item.expenseAmount %> </td>
 						<td><%= item.dueDate %></td>
@@ -42,7 +53,7 @@
 				<% }) %> 
 			</tbody>
 		  </table>
-		  <h1>total: <%= currentUser.expenseTotal() %> </h1>
+		  <h1>Monthly Total: <%= currentUser.expenseTotal() %> </h1>
 	</div>
 	<%- include('../partials/jsPath') %>
 </body>
