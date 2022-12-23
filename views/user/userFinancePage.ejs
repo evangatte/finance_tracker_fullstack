@@ -13,6 +13,13 @@
 				<h1>Hello, <%= currentUser.firstName %> </h1>
 			</div>
 		</div>
+
+		<%- include('../partials/calendar/calendar.ejs') %>
+	</div>
+	
+	<div></div>
+
+	<div class="container mt-5">
 		<div class="row text-center my-4">
 			<div class="col">
 				<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#newBillModal"> Add new Bill</button>

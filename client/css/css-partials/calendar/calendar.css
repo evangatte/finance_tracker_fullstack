@@ -1,0 +1,8 @@
+.calendar {
+	font-size: 14px;
+}
+
+.calendar .row .col {
+	padding-left: 0px;
+	padding-right: 0px;
+}
