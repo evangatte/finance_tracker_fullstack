@@ -5,3 +5,32 @@
 .backBtn {
 	text-decoration: none;
 }
+
+
+.calendar {
+	font-size: 14px;
+}
+
+.calendarRow {
+	max-height: 300px;
+	max-width: 300px;
+}
+
+.calendar .row .col {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.dueDateColorBlock {
+	border: solid;
+	height: 30px;
+	width: 30px;
+	background-color: pink;
+}
+
+.currentDayColorBlock {
+	border: solid;
+	height: 30px;
+	width: 30px;
+	background-color: aqua;
+}

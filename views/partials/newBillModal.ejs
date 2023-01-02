@@ -21,6 +21,27 @@
 					<label for="dueDate">Expense Due Date</label>
 					<input type="text" name="dueDate" id="expenseDueDateInput" class="form-control">
 				</div>
+
+				<!-- <input type="text" name="dueDate" id="expenseDueDateInput" class="form-control"> -->
+				<div class="d-flex">
+					<div class="form-group mb-3">
+						<div class="dropdown d-inline">
+							<div class="dropdown-toggle" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							  How is this bill paid:
+							</div>
+							<div class="dropdown-menu px-0 mx-0" aria-labelledby="dropdownMenuButton">
+							  <a class="dropdown-item autoDraftDropDown">Auto-draft</a>
+							  <a class="dropdown-item manualDraftDropDown">Manual-draft</a>
+							</div>
+						  </div>
+					</div>
+					<b>
+						<span class="draftTypeDisplay ml-3"></span>
+					</b>
+				</div>
+				<input type="hidden" name="draftType" id="draftTypeInput">
+
+
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</div>

@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
 		expenseName: String, 
 		expenseAmount: Number,
 		dueDate: Number,
+		draftType: String,
 		status: String
 	}]
 });
@@ -50,7 +51,6 @@ UserSchema.methods.nextDue = function() {
 
 	return returnArr;
 }
-
 
 
 

@@ -37,6 +37,9 @@
 				<th scope="col">Name</th>
 				<th scope="col">Amount</th>
 				<th scope="col">Due Date</th>
+				<th scope="col">Draft Type</th>
+				<th scope="col">Pay Status</th>
+
 			  </tr>
 			</thead>
 			<tbody>
@@ -44,7 +47,7 @@
 					<tr>
 						<td>
 							<div class="dropdown">
-								<div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<div class="dropdown-toggle" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								  Edit
 								</div>
 								<div class="dropdown-menu px-0 mx-0" aria-labelledby="dropdownMenuButton">
@@ -56,6 +59,9 @@
 						<td><%= item.expenseName %> </td>
 						<td>$<%= item.expenseAmount %> </td>
 						<td><%= item.dueDate %></td>
+						<td><%= item.draftType %></td>
+						<td><%= item.status %></td>
+						
 					  </tr>	
 				<% }) %> 
 			</tbody>

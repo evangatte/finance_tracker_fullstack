@@ -31,8 +31,42 @@ $( document ).ready(function() {
 		$('#expenseNameEditInput').val(currentExpense.expenseName);
 		$('#expenseAmountEditInput').val(currentExpense.expenseAmount);
 		$('#expenseDueDateEditInput').val(currentExpense.dueDate);
-		$('#expenseEditIndexInput').val(index)
-	})
+		$('.draftTypeEditDisplay').text(currentExpense.draftType);
+		$('#draftTypeEditInput').val(currentExpense.draftType);
+		$('#expenseEditIndexInput').val(index);
+
+		if (currentExpense.draftType == 'Manual-draft') {
+			$('.paidStatusContainer').removeClass('d-none');
+			$('.paidStatusContainer').addClass('d-flex');
+			$('.paidStatusEditDisplay').text(currentExpense.status);
+			$('#paidStatusEditInput').val(currentExpense.status);
+		}
+	});
+
+
+	$('.paidStatusEditDropDown').click(function() {
+		$('.paidStatusEditDisplay').text('Paid');
+		$('#paidStatusEditInput').val('Paid');
+	});
+
+
+
+	$('.notPaidStatusEditDropDown').click(function() {
+		$('.paidStatusEditDisplay').text('Not paid');
+		$('#paidStatusEditInput').val('Not paid');
+	});
+
+
+	$('.autoDraftEditDropDown').click(function() {
+		$('.draftTypeEditDisplay').text('Auto-draft');
+		$('#draftTypeEditInput').val('Auto-draft');
+	});
+
+
+	$('.manualDraftEditDropDown').click(function() {
+		$('.draftTypeEditDisplay').text('Manual-draft');
+		$('#draftTypeEditInput').val('Manual-draft');
+	});
 
 
 	$deleteBillBtn.click(async function() {
@@ -42,6 +76,16 @@ $( document ).ready(function() {
 		const currentExpense = data[index];
 
 		$('#approveDeleteBillName').text(currentExpense.expenseName);
-		
+	});
+
+
+	$('.autoDraftDropDown').click(function() {
+		$('.draftTypeDisplay').text('Auto-draft');
+		$('#draftTypeInput').val('Auto-draft');
+	});
+
+	$('.manualDraftDropDown').click(function() {
+		$('.draftTypeDisplay').text('Manual-draft');
+		$('#draftTypeInput').val('Manual-draft');
 	});
 });

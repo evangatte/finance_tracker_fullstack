@@ -22,6 +22,52 @@
 					<input type="text" name="dueDate" id="expenseDueDateEditInput" class="form-control">
 				</div>
 				<input type="hidden" name="expenseIndex" id="expenseEditIndexInput">
+
+				<div class="d-flex">
+					<div class="form-group mb-3">
+						<div class="dropdown d-inline">
+							<div class="dropdown-toggle" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							  How is this bill paid:
+							</div>
+							<div class="dropdown-menu px-0 mx-0" aria-labelledby="dropdownMenuButton">
+							  <a class="dropdown-item autoDraftEditDropDown">Auto-draft</a>
+							  <a class="dropdown-item manualDraftEditDropDown">Manual-draft</a>
+							</div>
+						  </div>
+					</div>
+					<b>
+						<span class="draftTypeEditDisplay ml-3"></span>
+					</b>
+				</div>
+				<input type="hidden" name="draftType" id="draftTypeEditInput">
+
+
+				<div class="d-none paidStatusContainer">
+					<div class="form-group mb-3">
+						<div class="dropdown d-inline">
+							<div class="dropdown-toggle" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Paid Status:
+							</div>
+							<div class="dropdown-menu px-0 mx-0" aria-labelledby="dropdownMenuButton">
+							  <a class="dropdown-item paidStatusEditDropDown">Paid</a>
+							  <a class="dropdown-item notPaidStatusEditDropDown">Not Paid</a>
+							</div>
+						  </div>
+					</div>
+					<b>
+						<span class="paidStatusEditDisplay ml-3"></span>
+					</b>
+					<input type="hidden" name="status" id="paidStatusEditInput">
+				</div>
+
+
+
+
+
+
+
+
+
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</div>

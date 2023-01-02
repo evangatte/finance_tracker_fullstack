@@ -7,8 +7,11 @@ router.post('/', async (req, res) => {
 	const updatedExpense = {
 		expenseName: req.body.expenseName,
 		expenseAmount: req.body.expenseAmount,
-		dueDate: req.body.dueDate
+		dueDate: req.body.dueDate,
+		draftType:  req.body.draftType,
+		status: req.body.status
 	}
+	console.log(req.body)
 
 	const user = await User.findById(req.user.id);
 
@@ -18,6 +21,7 @@ router.post('/', async (req, res) => {
 		await user.save();		
 		res.redirect('user/finance');
 	} catch(e) {
+		console.log(e.message)
 		res.json({ "Operation": "Failed" });
 	}
 

@@ -9,7 +9,8 @@ router.post('/', async (req, res) => {
 	const newBill = {
 		expenseName: req.body.expenseName,
 		expenseAmount: req.body.expenseAmount,
-		dueDate: req.body.dueDate
+		dueDate: req.body.dueDate,
+		draftType: req.body.draftType
 	}
 
 	user.expenses.push(newBill);
