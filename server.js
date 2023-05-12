@@ -6,10 +6,10 @@ const local = require('./strategies/local');
 const mongoose = require('mongoose');
 const path = require('path');
 
+mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://127.0.0.1/finance_db', () => {console.log('connected')}, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/client')));
@@ -24,7 +24,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-
 app.get('/', (req, res) => {
     if (req.user) {
         res.redirect('/user/finance');
@@ -32,8 +31,6 @@ app.get('/', (req, res) => {
         res.render('home/home');
     }
 });
-
-
 
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));

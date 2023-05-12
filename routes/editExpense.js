@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-
 router.post('/', async (req, res) => {
 	const updatedExpense = {
 		expenseName: req.body.expenseName,
@@ -24,15 +23,6 @@ router.post('/', async (req, res) => {
 		console.log(e.message)
 		res.json({ "Operation": "Failed" });
 	}
-
-
-
-
 });
-
-
-
-
-
 
 module.exports = router;

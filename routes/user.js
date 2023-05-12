@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User.js');
 
-
 router.get('/finance', async (req, res) => {
 	if (req.user) {
 		try {
@@ -17,11 +16,5 @@ router.get('/finance', async (req, res) => {
 		res.redirect('/');
 	}
 });
-
-
-
-
-
-
 
 module.exports = router;

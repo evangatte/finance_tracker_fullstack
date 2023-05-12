@@ -15,8 +15,6 @@ const UserSchema = new mongoose.Schema({
 });
 
 
-
-
 UserSchema.methods.expenseTotal = function() {
 	let totalArray = [];
 	this.expenses.forEach((arr) => {
@@ -26,8 +24,6 @@ UserSchema.methods.expenseTotal = function() {
 	let sum = totalArray.reduce((partialSum, val) => partialSum + val, 0);
 	return sum;
 }
-
-
 
 
 UserSchema.methods.nextDue = function() {
@@ -51,7 +47,6 @@ UserSchema.methods.nextDue = function() {
 
 	return returnArr;
 }
-
 
 
 module.exports = mongoose.model('User', UserSchema);

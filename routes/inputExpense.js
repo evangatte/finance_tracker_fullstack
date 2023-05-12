@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-
 router.post('/', async (req, res) => {
 	const user = await User.findById(req.user.id);
 
@@ -23,8 +22,5 @@ router.post('/', async (req, res) => {
 		res.json({"Input": "Failed"});
 	}
 })
-
-
-
 
 module.exports = router;

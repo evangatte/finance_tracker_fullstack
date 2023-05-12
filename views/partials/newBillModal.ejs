@@ -1,52 +1,53 @@
-  <div class="modal fade" id="newBillModal" tabindex="-1" role="dialog" aria-labelledby="newBillModal" aria-hidden="true">
+<div class="modal fade" id="newBillModal" tabindex="-1" role="dialog" aria-labelledby="newBillModal" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalLabel">New Bill</h5>
-		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-		<div class="modal-body">
-			<form action="/input-expense" method="POST">
-				<div class="form-group">
-					<label for="expenseName">Expense Name</label>
-					<input type="text" name="expenseName" id="expenseNameInput" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="expenseAmount">Expense Amount</label>
-					<input type="text" name="expenseAmount" id="expenseAmountInput" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="dueDate">Expense Due Date</label>
-					<input type="text" name="dueDate" id="expenseDueDateInput" class="form-control">
-				</div>
-
-				<!-- <input type="text" name="dueDate" id="expenseDueDateInput" class="form-control"> -->
-				<div class="d-flex">
-					<div class="form-group mb-3">
-						<div class="dropdown d-inline">
-							<div class="dropdown-toggle" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							  How is this bill paid:
-							</div>
-							<div class="dropdown-menu px-0 mx-0" aria-labelledby="dropdownMenuButton">
-							  <a class="dropdown-item autoDraftDropDown">Auto-draft</a>
-							  <a class="dropdown-item manualDraftDropDown">Manual-draft</a>
-							</div>
-						  </div>
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">New Bill</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form action="/input-expense" method="POST">
+					<div class="form-group">
+						<label for="expenseName">Expense Name</label>
+						<input type="text" name="expenseName" id="expenseNameInput" class="form-control">
 					</div>
-					<b>
-						<span class="draftTypeDisplay ml-3"></span>
-					</b>
-				</div>
-				<input type="hidden" name="draftType" id="draftTypeInput">
+					<div class="form-group">
+						<label for="expenseAmount">Expense Amount</label>
+						<input type="text" name="expenseAmount" id="expenseAmountInput" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="dueDate">Expense Due Date</label>
+						<input type="text" name="dueDate" id="expenseDueDateInput" class="form-control">
+					</div>
+
+					<!-- <input type="text" name="dueDate" id="expenseDueDateInput" class="form-control"> -->
+					<div class="d-flex">
+						<div class="form-group mb-3">
+							<div class="dropdown d-inline">
+								<div class="dropdown-toggle" class="dropdownMenuButton" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">
+									How is this bill paid:
+								</div>
+								<div class="dropdown-menu px-0 mx-0" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item autoDraftDropDown">Auto-draft</a>
+									<a class="dropdown-item manualDraftDropDown">Manual-draft</a>
+								</div>
+							</div>
+						</div>
+						<b>
+							<span class="draftTypeDisplay ml-3"></span>
+						</b>
+					</div>
+					<input type="hidden" name="draftType" id="draftTypeInput">
 
 
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+			</div>
 		</div>
-		<div class="modal-footer">
-		</div>
-	  </div>
 	</div>
-  </div>
+</div>

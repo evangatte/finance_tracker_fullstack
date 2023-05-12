@@ -8,11 +8,9 @@ $( document ).ready(function() {
 	let numberOfDaysInMonth = new Date(currentYear, currentMonth, 0).getDate();
 	let currentDay;
 	
-	
 	const date = new Date();
 	console.log(date.getUTCDate());
 	$monthName.text(date.toLocaleString("default", { month: "long" }))
-	
 	
 	function findCurrentDay() {
 		switch (currentDayNum) {
@@ -51,7 +49,6 @@ $( document ).ready(function() {
 	
 	let firstDayOfMonth = getFirstDay();
 
-	
 
 	///create the calendar rows that will be used in createCalendar()
 	let $numberRowOne = $('<div></div>').addClass('row');
@@ -60,7 +57,6 @@ $( document ).ready(function() {
 	let $numberRowFour = $('<div></div>').addClass('row numRow');
 	let $numberRowFive = $('<div></div>').addClass('row numRow');
 	let $numberRowSix = $('<div></div>').addClass('row numRow');
-	
 	
 	
 	
@@ -79,9 +75,6 @@ $( document ).ready(function() {
 	
 
 
-
-
-
 	// figure out how many blank spaces will go before the first day of the month, for example if the first day of the month isnt monday there will be blank spaces before it	
 	function createBlankSpaces() {
 		let dayArr = [];
@@ -96,7 +89,6 @@ $( document ).ready(function() {
 		}
 	} 
 		
-	
 	
 	
 	let numberRowCounter = 0
@@ -118,7 +110,6 @@ $( document ).ready(function() {
 		});
 		$calendar.append($daysOfWeekRow);
 	
-		
 		
 		
 		createBlankSpaces(numberRowCounter);
@@ -164,7 +155,6 @@ $( document ).ready(function() {
 		});
 	
 		
-
 		/// add blank spaces to the last row of calendar
 		let lastRow = $calendar.children().last();
 		let lastRowLength =	$calendar.children().last().children().length; 
@@ -180,8 +170,6 @@ $( document ).ready(function() {
 	createCalendar();
 
 
-
-
 	function highlightCurrentDay() {
 		let date = new Date().getDate();
 
@@ -192,6 +180,4 @@ $( document ).ready(function() {
 		});
 	}
 	highlightCurrentDay();
-
-
 });

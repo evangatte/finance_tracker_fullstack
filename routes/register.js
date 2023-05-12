@@ -3,12 +3,9 @@ const router = express.Router();
 const bcrypt = require('bcryptjs')
 const User = require('.././models/User');
 
-
 router.get('/', (req, res) => {
     res.render('register/register');
 })
-
-
 
 router.post('/', async (req, res) => {
     console.log(req.body.payPeriod, "|", req.body.payDay)
@@ -26,12 +23,6 @@ router.post('/', async (req, res) => {
         console.log(e.message);
         res.redirect('/')
     }
-
 })
-
-
-
-
-
 
 module.exports = router;

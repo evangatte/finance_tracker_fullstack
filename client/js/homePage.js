@@ -43,7 +43,7 @@ $( document ).ready(function() {
 		}
 	});
 
-
+	
 	$('.paidStatusEditDropDown').click(function() {
 		$('.paidStatusEditDisplay').text('Paid');
 		$('#paidStatusEditInput').val('Paid');
