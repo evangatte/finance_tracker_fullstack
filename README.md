@@ -4,5 +4,9 @@
 
 - Currently setup to store data in a local monogodb database.
 
+<<<<<<< HEAD
 ![Bill Dashboard](ExampleImages/bill_dashboard.png)
+=======
+![Bill Dashboard](images/bill_dashboard.png)
+>>>>>>> 55d11a879edfb0dca3e22ce8d919fcf17de2b6b5
 
