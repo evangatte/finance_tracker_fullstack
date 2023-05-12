@@ -3,18 +3,23 @@ const router = express.Router();
 const User = require('../models/User');
 
 router.post('/', async (req, res) => {
-	const updatedExpense = {
-		expenseName: req.body.expenseName,
-		expenseAmount: req.body.expenseAmount,
-		dueDate: req.body.dueDate,
-		draftType:  req.body.draftType,
-		status: req.body.status
+	const updatedExpense = {}
+
+	if (req.body.draftType === "Auto-draft") {
+		updatedExpense.status = "Auto";
+	} else {
+		updatedExpense.status = req.body.status;
 	}
-	console.log(req.body)
+
+	updatedExpense.expenseName = req.body.expenseName;
+	updatedExpense.expenseAmount = req.body.expenseAmount;
+	updatedExpense.dueDate = req.body.dueDate;
+	updatedExpense.draftType = req.body.draftType;
+
 
 	const user = await User.findById(req.user.id);
 
-	user.expenses[req.body.expenseIndex] = updatedExpense
+	user.expenses[req.body.expenseIndex] = updatedExpense;
 
 	try {
 		await user.save();		
