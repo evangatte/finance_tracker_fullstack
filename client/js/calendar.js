@@ -1,11 +1,11 @@
 $( document ).ready(function() {
 	const $calendar = $(".calendar");
-	let $monthName = $('#monthName');
+	const $monthName = $('#monthName');
 
-	let currentYear = new Date().getFullYear();
-	let currentMonth = new Date().getMonth() + 1;
-	let currentDayNum = new Date().getDay()
-	let numberOfDaysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+	const currentYear = new Date().getFullYear();
+	const currentMonth = new Date().getMonth() + 1;
+	const currentDayNum = new Date().getDay()
+	const numberOfDaysInMonth = new Date(currentYear, currentMonth, 0).getDate();
 	let currentDay;
 	
 	const date = new Date();
@@ -47,17 +47,16 @@ $( document ).ready(function() {
 		return date.getDay();
 	}
 	
-	let firstDayOfMonth = getFirstDay();
+	const firstDayOfMonth = getFirstDay();
 
 
 	///create the calendar rows that will be used in createCalendar()
-	let $numberRowOne = $('<div></div>').addClass('row');
-	let $numberRowTwo = $('<div></div>').addClass('row ');
-	let $numberRowThree = $('<div></div>').addClass('row');
-	let $numberRowFour = $('<div></div>').addClass('row numRow');
-	let $numberRowFive = $('<div></div>').addClass('row numRow');
-	let $numberRowSix = $('<div></div>').addClass('row numRow');
-	
+	const $numberRowOne = $('<div></div>').addClass('row');
+	const $numberRowTwo = $('<div></div>').addClass('row ');
+	const $numberRowThree = $('<div></div>').addClass('row');
+	const $numberRowFour = $('<div></div>').addClass('row numRow');
+	const $numberRowFive = $('<div></div>').addClass('row numRow');
+	const $numberRowSix = $('<div></div>').addClass('row numRow');
 	
 	
 	//create array that holds that holds a number for every day of the month for example 1-31
@@ -71,13 +70,12 @@ $( document ).ready(function() {
 		return daysArr;
 	}
 
-	let numOfDaysArr = createDaysArray(numberOfDaysInMonth);
-	
+	const numOfDaysArr = createDaysArray(numberOfDaysInMonth);
 
 
 	// figure out how many blank spaces will go before the first day of the month, for example if the first day of the month isnt monday there will be blank spaces before it	
 	function createBlankSpaces() {
-		let dayArr = [];
+		const dayArr = [];
 		for (let i = 0; i < firstDayOfMonth; i++) {
 			dayArr.push(i);
 		}
@@ -88,9 +86,8 @@ $( document ).ready(function() {
 			numberRowCounter++
 		}
 	} 
-		
-	
-	
+
+
 	let numberRowCounter = 0
 	
 	function createCalendar() {
@@ -116,37 +113,37 @@ $( document ).ready(function() {
 
 		numOfDaysArr.forEach(function(num) {
 			if (numberRowCounter < 7) {
-				let $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
+				const $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
 				$newCol.text(num);
 				$numberRowOne.append($newCol);
 				$calendar.append($numberRowOne);
 				numberRowCounter++
 			} else if (numberRowCounter < 14) {
-				let $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
+				const $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
 				$newCol.text(num);
 				$numberRowTwo.append($newCol);
 				$calendar.append($numberRowTwo);
 				numberRowCounter++	
 			} else if (numberRowCounter < 21) {
-				let $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
+				const $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
 				$newCol.text(num);
 				$numberRowThree.append($newCol);
 				$calendar.append($numberRowThree);
 				numberRowCounter++	
 			} else if (numberRowCounter < 28) {
-				let $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
+				const $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
 				$newCol.text(num);
 				$numberRowFour.append($newCol);
 				$calendar.append($numberRowFour);
 				numberRowCounter++	
 			} else if (numberRowCounter < 35) {
-				let $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
+				const $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
 				$newCol.text(num);
 				$numberRowFive.append($newCol);
 				$calendar.append($numberRowFive);
 				numberRowCounter++	
 			} else {
-				let $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
+				const $newCol = $("<div></div>").addClass(`col border numCol ${numberRowCounter}`);
 				$newCol.text(num);
 				$numberRowSix.append($newCol);
 				$calendar.append($numberRowSix);
@@ -156,8 +153,8 @@ $( document ).ready(function() {
 	
 		
 		/// add blank spaces to the last row of calendar
-		let lastRow = $calendar.children().last();
-		let lastRowLength =	$calendar.children().last().children().length; 
+		const lastRow = $calendar.children().last();
+		const lastRowLength = $calendar.children().last().children().length; 
 		if ($calendar.children().last().children().length < 7) {
 			for (let i = 0; i < 7 - lastRowLength; i++) {
 				let emptyCol = $('<div></div>').addClass('col border')
@@ -171,7 +168,7 @@ $( document ).ready(function() {
 
 
 	function highlightCurrentDay() {
-		let date = new Date().getDate();
+		const date = new Date().getDate();
 
 		$('.numCol').each(function() {
 			if ($(this).text() == date.toString()) {
@@ -179,5 +176,6 @@ $( document ).ready(function() {
 			}
 		});
 	}
+	
 	highlightCurrentDay();
 });
